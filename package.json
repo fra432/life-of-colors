@@ -10,10 +10,23 @@
   },
   "dependencies": {
     "@next/font": "13.1.6",
+    "@sanity/client": "^4.0.1",
+    "@sanity/image-url": "^1.0.2",
+    "@stripe/stripe-js": "^1.46.0",
+    "canvas-confetti": "^1.6.0",
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
     "next": "13.1.6",
+    "next-sanity-image": "^5.0.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-hot-toast": "^2.4.0",
+    "react-icon": "^1.0.0",
+    "stripe": "^11.9.1"
+  },
+  "devDependencies": {
+    "babel-preset-react-app": "^10.0.1",
+    "eslint": "8.33.0",
+    "eslint-config-next": "13.1.6"
   }
 }
