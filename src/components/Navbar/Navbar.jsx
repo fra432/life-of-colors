@@ -4,7 +4,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 const Navbar = () => {
   return (
     <div className="navbar-container">
-      <p clasName="logo">
+      <p className="logo">
         <Link href="/">MENU</Link>
       </p>
 
