@@ -11,19 +11,15 @@ export default {
         hotspot: true,
       },
     },
-    {
-      name: 'buttonText',
-      title: 'ButtonText',
-      type: 'string',
-    },
+
     {
       name: 'product',
       title: 'Product',
       type: 'string',
     },
     {
-      name: 'desc',
-      title: 'Desc',
+      name: 'description',
+      title: 'Description',
       type: 'string',
     },
     {

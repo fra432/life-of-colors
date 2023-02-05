@@ -1,29 +1,38 @@
 import React from "react";
-import { Paint, HeroBanner, FooterBanner } from "../components";
+import { Paint, FooterBanner } from "../components";
+import { client } from "../../lib/client";
 
-const Home = () => {
+const Home = ({ paints, bannerData }) => {
+  console.log(paints);
   return (
     <>
-      <HeroBanner />
       <div className="paints-heading">
-        <h2>Life of Colors</h2>
+        <h2>Paint you life</h2>
         <p>By Marina Mytnik</p>
       </div>
       <div className="paints-container">
-        {[
-          "Product 1",
-          "Product 2",
-          "Product 3",
-          "Product 4",
-          "Product 5",
-          "Product 6",
-          "Product 7",
-          "Product 8",
-        ].map((product) => product)}
+        {paints?.map((paint) => (
+          <Paint key={paint._id} paint={paint} />
+        ))}
       </div>
-      <FooterBanner />
+      <FooterBanner footerBanner={bannerData && bannerData[0]} />
     </>
   );
+};
+
+export const getServerSideProps = async () => {
+  const query = "*[_type == 'paint']";
+  const paints = await client.fetch(query);
+
+  const bannerQuery = "*[_type == 'banner']";
+  const bannerData = await client.fetch(bannerQuery);
+
+  return {
+    props: {
+      paints,
+      bannerData,
+    },
+  };
 };
 
 export default Home;
