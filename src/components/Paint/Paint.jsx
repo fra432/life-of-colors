@@ -7,7 +7,6 @@ const Paint = ({ paint: { image, name, slug, price } }) => {
     <div>
       <Link href={`/paint/${slug.current}`}>
         <div className="paint-card">
-          {console.log(urlFor(image && image[0]))}
           <img
             src={urlFor(image && image[0])}
             width={250}
