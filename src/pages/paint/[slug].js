@@ -3,6 +3,9 @@ import { useStateContext } from "@/context/StateContext";
 import { client, urlFor } from "../../../lib/client";
 
 const PaintDetails = ({ paint, paints }) => {
+  if (!paint) return <div>Paint not found</div>;
+  if (!paints) return <div>Paints not found</div>;
+
   const { name, image, details, price } = paint;
   const { onAdd, setShowCart } = useStateContext();
 
