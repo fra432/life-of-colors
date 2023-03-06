@@ -4,8 +4,7 @@ export const handler = async (req, res) => {
 
   let event;
 
-  console.log("request received");
-  /* try {
+  try {
     event = stripe.webhooks.constructEvent(req, signature, signingSecret);
     console.log("event received");
 
@@ -13,8 +12,9 @@ export const handler = async (req, res) => {
   } catch (err) {
     console.log("error", err);
     return res.status(400).send(`Webhook error: ${err.message}`);
-  } */
-  res.status(200).json({ received: true });
+  }
+
+  console.log("event", event);
 };
 
 export default handler;
