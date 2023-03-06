@@ -19,6 +19,17 @@ export const StateContext = ({ children }) => {
       setTotalQuantities(totalQuantities + 1);
       setTotalPrice(totalPrice + paint.price);
       toast.success(`${paint.name} added to cart`);
+
+      //save everything on local storage
+      localStorage.setItem("cartItems", JSON.stringify([...cartItems, paint]));
+      localStorage.setItem(
+        "totalPrice",
+        JSON.stringify(totalPrice + paint.price)
+      );
+      localStorage.setItem(
+        "totalQuantities",
+        JSON.stringify(totalQuantities + 1)
+      );
     }
   };
 
@@ -31,6 +42,20 @@ export const StateContext = ({ children }) => {
       setTotalPrice(totalPrice - paint.price);
       toast.success(`${paint.name} removed from cart`);
     }
+
+    //save everything on local storage
+    localStorage.setItem(
+      "cartItems",
+      JSON.stringify(cartItems.filter((item) => item._id !== paint._id))
+    );
+    localStorage.setItem(
+      "totalPrice",
+      JSON.stringify(totalPrice - paint.price)
+    );
+    localStorage.setItem(
+      "totalQuantities",
+      JSON.stringify(totalQuantities - 1)
+    );
   };
 
   return (
@@ -39,8 +64,11 @@ export const StateContext = ({ children }) => {
         showCart,
         setShowCart,
         cartItems,
+        setCartItems,
         totalPrice,
+        setTotalPrice,
         totalQuantities,
+        setTotalQuantities,
         onAdd,
         onRemove,
       }}

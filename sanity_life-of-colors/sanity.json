@@ -1,0 +1,9 @@
+{
+  "api": {
+    "projectId": "tdq96y0q",
+    "dataset": "production"
+  },
+  "cors": {
+    "origins": ["http://localhost:3000"]
+  }
+}

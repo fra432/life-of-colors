@@ -3,11 +3,10 @@ import style from "./Navbar.module.css";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Cart } from "../index";
 import { useStateContext } from "@/context/StateContext";
+import { updateAllPaintsSold } from "lib/client";
 
 const Navbar = () => {
   const { showCart, setShowCart, totalQuantities } = useStateContext();
-
-  console.log(totalQuantities);
 
   return (
     <div className="navbar-container">
@@ -18,7 +17,10 @@ const Navbar = () => {
       <button
         className={style["cart-icon"]}
         type="button"
-        onClick={() => setShowCart(true)}
+        onClick={() => {
+          setShowCart(true);
+          update();
+        }}
       >
         <AiOutlineShoppingCart />
         {totalQuantities > 0 && (

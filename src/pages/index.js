@@ -1,9 +1,9 @@
 import React from "react";
 import { Paint, FooterBanner } from "../components";
 import { client } from "../../lib/client";
+import { useStateContext } from "@/context/StateContext";
 
 const Home = ({ paints, bannerData }) => {
-  console.log(paints);
   return (
     <>
       <div className="paints-heading">

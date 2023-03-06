@@ -4,7 +4,14 @@ import { client, urlFor } from "../../../lib/client";
 
 const PaintDetails = ({ paint, paints }) => {
   const { name, image, details, price } = paint;
-  const { onAdd } = useStateContext();
+  const { onAdd, setShowCart } = useStateContext();
+
+  const handleBuyNow = () => {
+    onAdd(paint);
+
+    setShowCart(true);
+  };
+
   return (
     <div>
       <div className="paint-detail-container">
@@ -33,7 +40,9 @@ const PaintDetails = ({ paint, paints }) => {
           <h1 className="paint-details-name">{name}</h1>
           <h4>Details:</h4>
           <p>{details}</p>
-          <p className="price">{price}.00€</p>
+          <p className="price">{`${
+            price > 1 ? price + ".00€" : price + "€"
+          }`}</p>
           <div className="buttons">
             <button
               type="button"
@@ -42,7 +51,7 @@ const PaintDetails = ({ paint, paints }) => {
             >
               Add to cart
             </button>
-            <button type="button" className="buy-now" onClick={""}>
+            <button type="button" className="buy-now" onClick={handleBuyNow}>
               Buy now
             </button>
           </div>
@@ -85,6 +94,7 @@ export const getStaticProps = async ({ params: { slug } }) => {
   const query = `*[_type == "paint" && slug.current == '${slug}'][0]`;
   const paintsQuery = '*[_type == "paint"]';
 
+  debugger;
   const paint = await client.fetch(query);
   const paints = await client.fetch(paintsQuery);
 
