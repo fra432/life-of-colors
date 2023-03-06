@@ -94,7 +94,6 @@ export const getStaticProps = async ({ params: { slug } }) => {
   const query = `*[_type == "paint" && slug.current == '${slug}'][0]`;
   const paintsQuery = '*[_type == "paint"]';
 
-  debugger;
   const paint = await client.fetch(query);
   const paints = await client.fetch(paintsQuery);
 

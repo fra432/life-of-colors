@@ -92,8 +92,7 @@ export default async function handler(req, res) {
         event = stripe.webhooks.constructEvent(req, signature, signingSecret);
         console.log("event received");
 
-        debugger;
-
+¡
         res.send({ received: true });
       } catch (err) {
         console.log("error", err);
