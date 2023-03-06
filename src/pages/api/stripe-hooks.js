@@ -1,4 +1,8 @@
+import initStripe from "stripe";
+
 export const handler = async (req, res) => {
+  const stripe = initStripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
+
   const signature = req.headers["stripe-signature"];
   const signingSecret = process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY;
 
@@ -15,6 +19,8 @@ export const handler = async (req, res) => {
   }
 
   console.log("event", event);
+
+  res.send({ received: true });
 };
 
 export default handler;
