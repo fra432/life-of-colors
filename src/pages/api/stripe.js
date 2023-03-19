@@ -53,7 +53,9 @@ export default async function handler(req, res) {
             shipping_rate: "shr_1MgwLhH6Wxdxi7jUGylznQvM",
           },
         ],
+
         line_items: req.body.cartItems.map((item) => {
+          console.log(item._id);
           const image = item.image[0].asset._ref;
           const newImage = image
             .replace(
@@ -84,25 +86,7 @@ export default async function handler(req, res) {
       // Create Checkout Sessions from body params.
       const session = await stripe.checkout.sessions.create(params);
 
-      const signature = req.headers["stripe-signature"];
-      const signingSecret = process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY;
-
-      /*   let event;
-      try {
-        event = stripe.webhooks.constructEvent(req, signature, signingSecret);
-        console.log("event received");
-
-¡
-        res.send({ received: true });
-      } catch (err) {
-        console.log("error", err);
-        return res.status(400).send(`Webhook error: ${err.message}`);
-      }
-
-      console.log("event", event); */
-
-      /*   console.log(req.body.cartItems);
-
+      /*
 
       //modify the "sold" to true field in Sanity
       req.body.cartItems.forEach(async (item) => {
@@ -114,6 +98,7 @@ export default async function handler(req, res) {
         }`;
         await client.patch(id).set(updateQuery).commit();
       }); */
+
       res.status(200).json(session);
     } catch (err) {
       res.status(err.statusCode || 500).json(err.message);
