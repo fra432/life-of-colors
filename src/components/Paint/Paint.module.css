@@ -1,0 +1,66 @@
+.paint-card {
+  cursor: pointer;
+  break-inside: avoid-column; /* prevent element from breaking between columns */
+  width: 100%; /* or any desired width */
+  margin-bottom: 20px;
+  height: fit-content;
+  transition: transform 0.5s ease;
+  color: #324d67;
+  margin-bottom: 50px;
+  padding: 15px;
+  border: 2px solid #ebebeb;
+}
+
+.paint-card:hover {
+  transform: scale(1.01, 1.01);
+}
+
+.paint-image {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #ebebeb;
+  transition: transform 0.5s ease;
+  border-radius: 20px;
+}
+
+.image {
+  width: 100%;
+  object-fit: contain;
+}
+
+.paint-name {
+  font-weight: 300;
+  text-align: center;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+.paint-price {
+  font-weight: 300;
+  margin-top: 6px;
+  color: #324d67;
+}
+
+.sold {
+  opacity: 0.8;
+}
+
+.item-sold-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 20px;
+  z-index: 2;
+  width: 60%;
+  height: 60%;
+  text-align: center;
+  background-color: #f5f9fc9a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

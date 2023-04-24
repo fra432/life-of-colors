@@ -1,13 +1,23 @@
-.cart-icon {
-  font-size: 25px;
-  color: gray;
-  cursor: pointer;
+.navbar-container {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 10px 20px;
+  align-items: center;
   position: relative;
-  transition: transform 0.4s ease;
-  border: none;
-  background-color: transparent;
+  margin-top: -60px;
 }
 
-.cart-icon:hover {
-  transform: scale(1.1, 1.1);
+.title-container {
+  font-weight: 200;
+  font-size: 23px;
+  padding: 10px;
+  letter-spacing: 2px;
+  color: #7a8b9cc5;
+}
+
+.active {
+  border-bottom: 1px solid #7a8b9cdf;
+  color: #687b8f;
+  font-weight: 300;
 }

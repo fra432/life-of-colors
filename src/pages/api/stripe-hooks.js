@@ -49,6 +49,8 @@ export const handler = async (req, res) => {
 
       const paintName = lineItems.map((item) => item.description)[0];
 
+      console.log("paintName", paintName);
+
       const query = `*[_type == "paint" && name == '${paintName}']`;
       const paint = await client.fetch(query);
 

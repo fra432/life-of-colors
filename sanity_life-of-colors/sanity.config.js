@@ -6,7 +6,6 @@ import {schemaTypes} from './schemas'
 export default defineConfig({
   name: 'default',
   title: 'life-of-colors',
-
   projectId: 'tdq96y0q',
   dataset: 'production',
 

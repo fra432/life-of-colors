@@ -1,34 +1,31 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import style from "./Navbar.module.css";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { Cart } from "../index";
-import { useStateContext } from "@/context/StateContext";
-import { updateAllPaintsSold } from "lib/client";
 
 const Navbar = () => {
-  const { showCart, setShowCart, totalQuantities } = useStateContext();
+  const router = useRouter();
+  const isAboutPage = router.pathname === "/about";
 
   return (
-    <div className="navbar-container">
-      <p className="logo">
-        <Link href="/">MENU</Link>
-      </p>
-
-      <button
-        className={style["cart-icon"]}
-        type="button"
-        onClick={() => {
-          setShowCart(true);
-          update();
-        }}
-      >
-        <AiOutlineShoppingCart />
-        {totalQuantities > 0 && (
-          <span className="cart-item-qty">{totalQuantities}</span>
-        )}
-      </button>
-
-      {showCart && <Cart />}
+    <div className={style["navbar-container"]}>
+      <Link href="/">
+        <div
+          className={`${style["title-container"]} ${
+            !isAboutPage ? style.active : ""
+          }`}
+        >
+          Gallery
+        </div>
+      </Link>
+      <Link href="/about">
+        <div
+          className={`${style["title-container"]} ${
+            isAboutPage ? style.active : ""
+          }`}
+        >
+          About
+        </div>
+      </Link>
     </div>
   );
 };
