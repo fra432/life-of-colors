@@ -6,6 +6,9 @@
   align-items: center;
   position: relative;
   margin-top: -60px;
+  @media (max-width: 425px) {
+    gap: 10px;
+  }
 }
 
 .title-container {
@@ -14,6 +17,14 @@
   padding: 10px;
   letter-spacing: 2px;
   color: #7a8b9cc5;
+
+  /* media query mobile */
+  @media (max-width: 425px) {
+    font-size: 18px;
+  }
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 }
 
 .active {

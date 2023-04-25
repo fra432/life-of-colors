@@ -59,11 +59,15 @@ const PaintDetails = ({ paint, paints }) => {
         </div>
       </div>
       <div className="paint-detail-desc">
-        <h1 className="paint-details-name">{name}</h1>
-        <h4>Details:</h4>
-        <p>{details}</p>
-        <p className="price">{`${price > 1 ? price + ".00€" : price + "€"}`}</p>
-        <p>Press the image to enlarge</p>
+        <div className="paint-info">
+          <h1 className="paint-details-name">{name}</h1>
+          <h4>Details:</h4>
+          <p>{details}</p>
+          <p className="price">{`${
+            price > 1 ? price + " .00€" : price + " €"
+          }`}</p>
+          <p>Press the image to enlarge</p>
+        </div>
         <div className="buttons">
           <button type="button" className="buy-now" onClick={handleCheckout}>
             Buy now
