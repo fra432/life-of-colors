@@ -37,7 +37,7 @@ const PaintDetails = ({ paint, paints }) => {
   return (
     <div className="paint-detail-container">
       <div>
-        <div className="image-container">
+        <div className="paint-image-container">
           <img
             className="paint-detail-image"
             src={urlFor(image && image[0])}

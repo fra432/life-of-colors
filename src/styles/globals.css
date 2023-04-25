@@ -21,6 +21,14 @@ a {
   text-decoration: none;
 }
 
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  align-items: center;
+}
+
 .main-container {
   margin: auto;
   width: 100%;
@@ -37,6 +45,10 @@ a {
   padding: 20px;
   column-count: 3;
   column-gap: 40px;
+
+  @media (max-width: 425px) {
+    column-count: 1;
+  }
 }
 
 .description {
@@ -139,6 +151,15 @@ a {
   margin-top: -40px;
   color: #324d67;
   z-index: 6;
+
+  @media (max-width: 425px) {
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    padding: 0;
+  }
 }
 
 .paint-detail-desc {
@@ -146,15 +167,27 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (max-width: 425px) {
+    width: 90%;
+  }
+}
+
+.paint-image-container {
+  @media screen and (max-width: 425px) {
+    text-align: center;
+  }
 }
 
 .paint-detail-image {
-  border-radius: 15px;
   background-color: #ebebeb;
   width: 400px;
   height: 400px;
   cursor: pointer;
   transition: 0.3s ease-in-out;
+
+  @media (max-width: 425px) {
+  }
 }
 
 .paint-details-name {
@@ -222,6 +255,11 @@ a {
   cursor: pointer;
   transform: scale(1, 1);
   transition: transform 0.5s ease;
+
+  @media (max-width: 425px) {
+    width: 100%;
+    height: 80px;
+  }
 }
 .buttons .buy-now:hover {
   transform: scale(1.1, 1.1);
@@ -338,7 +376,10 @@ a {
   align-items: center;
   padding: 20px 0px;
   width: 97%;
-  height: 400px;
+
+  @media (max-width: 425px) {
+    flex-direction: column;
+  }
 }
 
 .about-image-container {
@@ -360,9 +401,18 @@ a {
 }
 
 .description-container {
-  height: 100%;
+  min-height: 400px;
   width: 100%;
   padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  @media (max-width: 425px) {
+    text-align: center;
+    padding: 5px;
+    padding-top: 40px;
+  }
 }
 
 .description-container p {
@@ -370,6 +420,7 @@ a {
   line-height: 30px;
   font-weight: 300;
   color: #324d67;
+  font-style: italic;
 }
 
 @media screen and (max-width: 800px) {
@@ -382,12 +433,13 @@ a {
   .paint-detail-container .paint-detail-image {
     width: 350px;
     height: 350px;
-    border-radius: 50px;
+
+    @media (max-width: 425px) {
+      width: 95%;
+      height: 100%;
+    }
   }
 
-  .buttons .buy-now {
-    width: 150px;
-  }
   .product-detail-container {
     margin: 20px;
   }
