@@ -1,0 +1,80 @@
+.form {
+  width: 80%;
+  border: none;
+}
+
+.form fieldset {
+  border: none;
+  display: flex;
+  gap: 10px;
+}
+
+.field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+/* input and textarea */
+.field input,
+.field textarea {
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  border: 1.5px solid #ebebeb;
+  padding: 0 10px;
+  font-size: 20px;
+  font-weight: 300;
+  color: #324d67;
+  letter-spacing: 1px;
+  margin-top: 15px;
+}
+
+.field textarea {
+  height: 150px;
+  padding: 10px;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border: 1.5px solid #687b8f;
+}
+
+.label {
+  font-size: 22px;
+  font-weight: 200;
+  color: #687b8f;
+  letter-spacing: 1px;
+}
+
+.sublabel {
+  font-size: 15px;
+  font-weight: 200;
+  color: #687b8f;
+  letter-spacing: 1px;
+  margin-top: 10px;
+}
+
+.form button {
+  width: 30%;
+  height: 50px;
+  background-color: var(--blue);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 17px;
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
+}
+
+form .error {
+  border: 1px solid rgb(226, 69, 22);
+}
+
+.error-message {
+  color: rgb(226, 69, 22);
+  font-size: 15px;
+  font-weight: 200;
+  margin-top: 5px;
+}

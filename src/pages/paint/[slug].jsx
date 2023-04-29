@@ -7,6 +7,7 @@ import { client, urlFor } from "../../../lib/client";
 const PaintDetails = ({ paint, paints }) => {
   if (!paint) return <div>Paint not found</div>;
   if (!paints) return <div>Paints not found</div>;
+  const [index, setIndex] = useState(0);
 
   const [openImage, setOpenImage] = useState(false);
 
@@ -40,22 +41,25 @@ const PaintDetails = ({ paint, paints }) => {
         <div className="paint-image-container">
           <img
             className="paint-detail-image"
-            src={urlFor(image && image[0])}
+            src={urlFor(image && image[index])}
             width={250}
             height={250}
             alt={name}
             onClick={() => setOpenImage(true)}
           />
-          {/*    <div className="small-images-container">
-              {image?.map((img, index) => (
-                <img
-                  src={urlFor(img)}
-                  key={index}
-                  className="small-image"
-                  onMouseEnter={() => {}}
-                />
-              ))}
-            </div> */}
+          <div className="small-images-container">
+            {image?.map((img, index) => (
+              <img
+                src={urlFor(img)}
+                key={index}
+                className="small-image"
+                onMouseEnter={() => {
+                  setIndex(index);
+                }}
+                onClick={() => setIndex(index)}
+              />
+            ))}
+          </div>
         </div>
       </div>
       <div className="paint-detail-desc">
@@ -63,15 +67,19 @@ const PaintDetails = ({ paint, paints }) => {
           <h1 className="paint-details-name">{name}</h1>
           <h4>Details:</h4>
           <p>{details}</p>
-          <p className="price">{`${
-            price > 1 ? price + " .00€" : price + " €"
-          }`}</p>
-          <p>Press the image to enlarge</p>
+          <p className="enlarge">Press the image to enlarge</p>
+          {!paint.sold && (
+            <p className="price">{`${
+              price > 1 ? price + " .00€" : price + " €"
+            }`}</p>
+          )}
         </div>
         <div className="buttons">
-          <button type="button" className="buy-now" onClick={handleCheckout}>
-            Buy now
-          </button>
+          {!paint.sold && (
+            <button type="button" className="buy-now" onClick={handleCheckout}>
+              Buy now
+            </button>
+          )}
         </div>
       </div>
       {openImage && (
@@ -80,7 +88,7 @@ const PaintDetails = ({ paint, paints }) => {
             className="exit-icon"
             onClick={() => setOpenImage(false)}
           />
-          <img src={urlFor(image && image[0])} />
+          <img src={urlFor(image && image[index])} />
         </div>
       )}
     </div>
