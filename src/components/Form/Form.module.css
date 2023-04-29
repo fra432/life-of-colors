@@ -19,13 +19,14 @@
   width: 100%;
   height: 50px;
   border-radius: 5px;
-  border: 1.5px solid #ebebeb;
+  border: 1.5px solid #dbdbdb;
   padding: 0 10px;
   font-size: 20px;
   font-weight: 300;
   color: #324d67;
   letter-spacing: 1px;
   margin-top: 15px;
+  margin-bottom: 10px;
 }
 
 .field textarea {
@@ -51,7 +52,6 @@
   font-weight: 200;
   color: #687b8f;
   letter-spacing: 1px;
-  margin-top: 10px;
 }
 
 .form button {
