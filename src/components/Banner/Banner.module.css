@@ -50,7 +50,6 @@
   font-weight: 800;
   z-index: 2;
 
-  /* media query */
   @media screen and (max-width: 768px) {
     font-size: 35px;
   }
