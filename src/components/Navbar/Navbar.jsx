@@ -8,8 +8,6 @@ const Navbar = () => {
   const isAboutPage = router.pathname === "/about";
   const isContactPage = router.pathname === "/contact";
 
-  console.log(isContactPage);
-
   return (
     <div className={style["navbar-container"]}>
       <Link href="/">
